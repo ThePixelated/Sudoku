@@ -81,8 +81,21 @@ void start_title() {
 	std::cout << " +=========================================================+\n";
 }
 
-void main_menu_sect() {
-	std::cout << "\n [1] Play\t [Work in progress]\n [2] Leaderboard [Coming soon..]\n [3] Credit\n [4] Exit\n ";
+bool main_menu_session() {
+	std::cout << "\n ,------------------------------------.\n";
+	std::cout << " |         Welcome to Sudoku!!        |\n";
+	std::cout << " .------------------------------------.\n";
+	std::cout << " |                                    |\n";
+	std::cout << " | [1] Play        [Work in progress] |\n";
+	std::cout << " | [2] Leaderboard [Coming soon]      |\n";
+	std::cout << " | [3] Credit                         |\n";
+	std::cout << " | [4] Exit                           |\n";
+	std::cout << " |                                    |\n";
+	std::cout << " `------------------------------------'\n";
+
+	std::cout << "  Press the number on your keyboard...";
+	
+	return 0;
 }
 
 void credit_msg() {
@@ -237,6 +250,10 @@ int cursor_movement(std::vector<std::vector<std::vector<int>>> arr, int user_inp
 	return 0;
 }
 
+// Inputs
+// ------
+// ......
+
 // load, save, create system
 // .....cws
 
@@ -244,13 +261,13 @@ int cursor_movement(std::vector<std::vector<std::vector<int>>> arr, int user_inp
 int main() {
 	std::vector<std::vector<std::vector<int>>> grid_tile = generate_tile();
 
-	bool activation_state = false;	//  Technical
-	bool debug_mode = false;		//    stuff
+	bool activation_state = false;  //  Technical
+	bool debug_mode = false;        //    stuff
 
-	bool screen_title = true;		// screen title
-	bool levels_menu = false;		// consist of levels
-	bool main_menu = false;			// consist of level menu, exit, leaderboard, and credit
-	bool play_mode = false;			// we play
+	bool screen_title = true;       // screen title
+	bool levels_menu = false;       // consist of levels
+	bool main_menu = false;         // consist of level menu, exit, leaderboard, and credit
+	bool play_mode = false;         // we play
 
 	while (true) {
 		if (screen_title) {
@@ -260,14 +277,14 @@ int main() {
 			std::cout << "\n"; start_title();; std::cout << "\n Press any key to start..";	// Screen title
 			_getch();
 	
-			clearance(30, 0, 0);
+			clearance(30);
 			continue;
 		}
 	
 		if (main_menu) {
 			clearance(30);
 	
-			main_menu_sect();
+			main_menu_session();
 			int menu_input = _getch();
 			
 			// Key input 4
@@ -336,15 +353,15 @@ int main() {
 
 // Requirement
 // -----------
-// Fixing 'cursor' move, (Left, Down, Right)						[Finished]
+// Fixing 'cursor' move, (Left, Down, Right)                        [Finished]
 // Add Screen title													[Finished]
-// Add Start menu													[On Going]
-// // Input system in edit mode                                     
-// Add level section																				
-// Validation check (for each row, column and block of square)		
-// Check input system (wave function collapse, advance validation)	
-// Cursor overlay information										
-// load, save level system											
-// create level system												
-// Cursor and border customization (player can choose)				
+// Add Start menu													[Finished] - Could do rework
+// Input system in edit mode                                        [On Going]
+// Add level section                                                	
+// Validation check (for each row, column and block of square)      
+// Check input system (wave function collapse, advance validation)  
+// Cursor overlay information                                       
+// load, save level system                                          
+// create level system                                              
+// Cursor and border customization (player can choose)              
 // Tidying it up													[On going]
